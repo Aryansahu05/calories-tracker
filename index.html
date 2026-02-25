@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Indian Food Calories & Protein Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="viewport-frame">
+  <div class="app">
+    <header class="header">
+      <div>
+        <h1>Daily Indian Food Tracker</h1>
+        <p>Track calories and protein from common Indian foods.</p>
+      </div>
+      <div class="header-right">
+        <div class="date-picker">
+          <label for="date">Date</label>
+          <input type="date" id="date">
+        </div>
+        <div class="header-actions">
+          <button id="history-btn" type="button" class="ghost-btn">View saved days</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <section class="card wide">
+        <div class="card-header">
+          <h2>Food Entries</h2>
+          <button id="add-row-btn" type="button">+ Add Row</button>
+        </div>
+        <div class="table-wrapper">
+          <table id="entries-table">
+            <thead>
+              <tr>
+                <th>Meal</th>
+                <th>Calories</th>
+                <th>Protein (g)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="entries-body">
+              <!-- Rows added by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+        <p class="hint">Tip: Select your meal, then type the calories and protein you ate. Totals will update automatically.</p>
+      </section>
+
+      <section class="sidebar">
+        <div class="card">
+          <h2>Meal-wise Totals</h2>
+          <div class="totals-grid">
+            <div class="total-card">
+              <h3>Breakfast</h3>
+              <p><span class="label">Calories:</span> <span id="breakfast-cal">0</span></p>
+              <p><span class="label">Protein:</span> <span id="breakfast-protein">0</span> g</p>
+            </div>
+            <div class="total-card">
+              <h3>Lunch</h3>
+              <p><span class="label">Calories:</span> <span id="lunch-cal">0</span></p>
+              <p><span class="label">Protein:</span> <span id="lunch-protein">0</span> g</p>
+            </div>
+            <div class="total-card">
+              <h3>Snack</h3>
+              <p><span class="label">Calories:</span> <span id="snack-cal">0</span></p>
+              <p><span class="label">Protein:</span> <span id="snack-protein">0</span> g</p>
+            </div>
+            <div class="total-card">
+              <h3>Dinner</h3>
+              <p><span class="label">Calories:</span> <span id="dinner-cal">0</span></p>
+              <p><span class="label">Protein:</span> <span id="dinner-protein">0</span> g</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Daily Totals</h2>
+          <p><span class="label">Total Calories:</span> <span id="daily-cal">0</span></p>
+          <p><span class="label">Total Protein:</span> <span id="daily-protein">0</span> g</p>
+        </div>
+
+        <div class="card">
+          <h2>Food Reference</h2>
+          <table class="food-table">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th>Unit</th>
+                <th>Cal</th>
+                <th>Prot (g)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Roti</td><td>per 100 g</td><td>300</td><td>9</td></tr>
+              <tr><td>Rice</td><td>per 100 g</td><td>130</td><td>2.5</td></tr>
+              <tr><td>Dal</td><td>per 100 g</td><td>120</td><td>7</td></tr>
+              <tr><td>Egg</td><td>per 1 piece</td><td>75</td><td>6</td></tr>
+              <tr><td>Oats</td><td>per 100 g</td><td>380</td><td>13</td></tr>
+              <tr><td>Milk</td><td>per 100 ml</td><td>50</td><td>3.5</td></tr>
+              <tr><td>Paneer</td><td>per 100 g</td><td>265</td><td>18</td></tr>
+              <tr><td>Veg curry</td><td>per 100 g</td><td>90</td><td>2</td></tr>
+            </tbody>
+          </table>
+          <p class="hint small">Values are approximate. Adjust later if you like.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  </div>
+
+  <div id="history-modal" class="modal">
+    <div id="history-modal-backdrop" class="modal-backdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>Saved days</h2>
+        <button id="close-history-btn" type="button" class="delete-btn" aria-label="Close history">×</button>
+      </div>
+      <p class="hint small">Click a date to load your calories and protein for that day.</p>
+      <ul id="history-list" class="history-list"></ul>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
